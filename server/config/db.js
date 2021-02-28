@@ -1,10 +1,8 @@
 const mongoose = require('mongoose');
 
 connectDB = async () => {
-  const MONGO_URL =
-    'mongodb+srv://hayderjabur:hayderjebur@cluster0.vgowt.mongodb.net/graphql?retryWrites=true&w=majority';
   try {
-    const conn = await mongoose.connect(MONGO_URL, {
+    const conn = await mongoose.connect(process.env.MONGO_URL, {
       useUnifiedTopology: true,
       useNewUrlParser: true,
       useCreateIndex: true,
