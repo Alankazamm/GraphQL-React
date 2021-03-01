@@ -5,7 +5,6 @@ const expressGraphQL = require('express-graphql');
 const bodyParser = require('body-parser');
 const schema = require('./schema/schema');
 const connectDB = require('./config/db');
-const config = require('dotenv');
 const app = express();
 
 connectDB();
