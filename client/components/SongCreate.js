@@ -31,7 +31,7 @@ const SongCreate = () => {
       <form className='form' onSubmit={submitNewSong}>
         <label>Song Title:</label>
         <input
-          className='collection-item'
+          className='input'
           type='text'
           value={songTitle}
           onChange={(e) => setSongTitle(e.target.value)}
