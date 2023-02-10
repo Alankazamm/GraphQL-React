@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import { StaticRouter } from 'react-router';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
+
 import {
   ApolloClient,
   ApolloProvider,
@@ -9,9 +9,6 @@ import {
   HttpLink,
 } from '@apollo/client';
 
-import SongList from './components/songList/SongList';
-import SongCreate from './components/SongCreate';
-import SongDetails from './components/SongDetails';
 import './style/style.css';
 
 const httpLink = new HttpLink({
@@ -30,10 +27,10 @@ const Root = () => {
     <ApolloProvider client={client}>
       <Router>
         <Route exact path='/' component={SongList} />
-        <Switch>
+     
           <Route exact path='/songs/new' component={SongCreate}></Route>
           <Route exact path='/songs/:id' component={SongDetails} />
-        </Switch>
+    
       </Router>
     </ApolloProvider>
   );
