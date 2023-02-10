@@ -1,20 +1,20 @@
-import React from 'react';
-import { createRoot } from 'react-dom/client';
-import { HashRouter, Route, Router, Routes, } from 'react-router-dom';
+import React from "react";
+import { createRoot } from "react-dom/client";
+import { HashRouter, Route, Routes } from "react-router-dom";
 
 import {
   ApolloClient,
   ApolloProvider,
   InMemoryCache,
   HttpLink,
-} from '@apollo/client';
+} from "@apollo/client";
 
-import './style/style.css';
-import App from './components/App';
-import SongList from './components/SongList';
+import "./style/style.css";
+
+import SongList from "./components/SongList";
 
 const httpLink = new HttpLink({
-  uri: 'http://localhost:4000/graphql',
+  uri: "http://localhost:4000/graphql",
 });
 
 const client = new ApolloClient({
@@ -27,21 +27,16 @@ const client = new ApolloClient({
 const Root = () => {
   return (
     <ApolloProvider client={client}>
-        <HashRouter >
+      <HashRouter>
         <Routes>
-          <Route path="/" element={<SongList />}>
-            <Route path="/" element={<SongList />} />
-          </Route>
+
+            <Route exact path="/" element={<SongList />} />
+        
         </Routes>
-
-    </HashRouter>
-      
-
-
-      
+      </HashRouter>
     </ApolloProvider>
   );
 };
 
-const root = createRoot(document.querySelector('#root'));
-root.render(<Root />)
+const root = createRoot(document.querySelector("#root"));
+root.render(<Root />);
