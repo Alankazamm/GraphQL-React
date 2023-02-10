@@ -1,6 +1,6 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { createRoot } from 'react-dom/client';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
 import {
   ApolloClient,
@@ -28,14 +28,18 @@ const Root = () => {
   return (
     <ApolloProvider client={client}>
       <Router>
-        <Route exact path='/' component={SongList} />
-     
+        <Routes>
+          <Route exact path='/' component={SongList} />
+
           {/* <Route exact path='/songs/new' component={SongCreate}></Route>
-          <Route exact path='/songs/:id' component={SongDetails} /> */}
-    
+     <Route exact path='/songs/:id' component={SongDetails} /> */}
+        </Routes>
+
+
       </Router>
     </ApolloProvider>
   );
 };
 
-ReactDOM.render(<Root />, document.querySelector('#root'));
+const root = createRoot(document.querySelector('#root'));
+root.render(<Root />)
